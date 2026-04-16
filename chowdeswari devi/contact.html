@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>విరాళం రసీదు</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+color:white;
+text-align:center;
+}
+
+#bgvideo{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-1;
+}
+
+.receipt{
+background:rgba(0,0,0,0.8);
+padding:30px;
+max-width:420px;
+margin:auto;
+margin-top:120px;
+border-radius:12px;
+}
+
+button{
+padding:12px 20px;
+background:#ff9800;
+border:none;
+border-radius:6px;
+color:white;
+cursor:pointer;
+margin-top:15px;
+}
+
+</style>
+</head>
+
+<body>
+
+<video autoplay muted loop playsinline id="bgvideo">
+<source src="https://v.ftcdn.net/14/48/09/26/240_F_1448092608_WNCcPphz1S5WuYOiPI5hGwIUM2M46H1r_ST.mp4" type="video/mp4">
+</video>
+
+<div class="receipt">
+
+<h2>🛕 దేవాలయ విరాళం రసీదు</h2>
+
+<p><b>రసీదు సంఖ్య:</b> <span id="r"></span></p>
+
+<p><b>పేరు:</b> <span id="n"></span></p>
+
+<p><b>మొత్తం:</b> ₹ <span id="a"></span></p>
+
+<p><b>తేదీ:</b> <span id="d"></span></p>
+
+<button onclick="window.print()">రసీదు ముద్రించండి</button>
+
+<br><br>
+
+<a href="index.html" style="color:#ffd54f;">కొత్త సమర్పణ</a>
+
+</div>
+
+<script>
+
+const params=new URLSearchParams(window.location.search);
+
+let receipt=params.get("receipt");
+let name=params.get("name");
+let amount=params.get("amount");
+
+let date=new Date().toLocaleString();
+
+document.getElementById("r").textContent=receipt;
+document.getElementById("n").textContent=name;
+document.getElementById("a").textContent=amount;
+document.getElementById("d").textContent=date;
+
+let history=JSON.parse(localStorage.getItem("donations"))||[];
+
+history.push({receipt,name,amount,date});
+
+localStorage.setItem("donations",JSON.stringify(history));
+
+</script>
+
+</body>
+</html>

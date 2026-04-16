@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  body {
+    background: linear-gradient(lightblue, white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial;
+  }
+
+  .card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px gray;
+    text-align: center;
+  }
+
+  input {
+    padding: 10px;
+    margin: 8px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid gray;
+  }
+
+  button {
+    padding: 10px 20px;
+    background: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: darkgreen;
+  }
+</style>
+</head>
+<body>
+  <input placeholder="username" id="username" type="text"><br><br>
+  <input placeholder="@gmail.com" id="email" type="email"><br><br>
+  <input placeholder="password" id="password" type="password"><br><br>
+  <input placeholder="confirm password" id="cpass" type="password"><br><br>
+  <button id="signup">sign up</button><br><br>
+  <p id="output">output here</p>
+</body>
+<script>
+ let user = document.getElementById("username");
+ let email = document.getElementById("email");
+ let pass = document.getElementById("password");
+let  op= document.getElementById("output");
+let btn = document.getElementById("signup");
+btn.addEventListener("click",function(){
+  let user = document.getElementById("username").value;
+ let email = document.getElementById("email").value;
+ let pass = document.getElementById("password").value;
+  let cpass = document.getElementById("cpass").value;
+let  op= document.getElementById("output");
+   // empty check
+if(user === "" || email === "" || pass === "" || cpass === "") {
+  op.innerText = "Enter all inputs ❌";
+  op.style.color = "red";
+  return;
+}
+
+// email check
+if(!email.includes("@gmail.com")){
+  op.innerText = "enter a valid gmail ❌";
+  op.style.color = "red";
+  return;
+}
+
+// password length
+if(pass.length < 4){
+  op.innerText = "password should be more than 4 characters ❌";
+  op.style.color = "red";
+  return;
+}
+
+// confirm password check ✅ FIX
+if(pass !== cpass){
+  op.innerText = "Passwords do not match ❌";
+  op.style.color = "red";
+  return;   // 🔥 IMPORTANT
+}
+
+// success
+op.innerText = "signed successfully ✅";
+op.style.color = "green";
+
+// clear inputs
+document.getElementById("username").value = "";
+document.getElementById("email").value = "";
+document.getElementById("password").value = "";
+document.getElementById("cpass").value = "";
+});
+
+</script>
+</html>

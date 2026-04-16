@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Modern+Antiqua&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik+Glitch&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+.c-body{
+    height: 450vh;
+    background-image: url('https://images.unsplash.com/photo-1671159593357-ee577a598f71?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmxhY2slMjBncmFkaWVudHxlbnwwfHwwfHx8MA%3D%3D');
+}
+.ulhead{
+    margin-left: auto;
+}
+.logoimg{
+    height: 75px;
+    padding-left: 10px;
+}
+.nav-link.item{
+    color: azure;
+    font-family: "Montserrat", sans-serif;
+}
+.nav-link.item:hover{
+    color: rgb(26, 219, 26);
+    animation: alternate;
+}
+.xyz{
+   
+    color: white;
+    text-align: center;
+    
+   
+}
+.mainimg{
+    height: 75vh;
+    height: 370px;
+    align-items: center;
+}
+.hname{
+    font-family: "Roboto", sans-serif;
+    font-size: 30px;
+}
+.bpara{
+   font-family: "Montserrat", sans-serif;
+}
+.about{
+    text-align: center;
+    color: white;
+}
+.aboutp{
+    color: white;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+}
+.parai{
+    color: white;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+}
+.hi{
+    color: white;
+    text-align: center;
+}
+.heado{
+    text-align: center;
+    color:white;
+}
+.c1{
+    border: 2px solid white;
+    padding: 2px;
+    margin: 30px;
+    
+.t1{
+    
+    text-align: center;
+    color: white;
+}
+.p1{
+    text-align: center;
+    color:white ;
+     font-family: "Montserrat", sans-serif;
+}
+.card{
+    background-color: transparent !important;
+
+}
+.card:hover{
+    
+}
+.p2{
+    color: white;
+    text-align: center;
+     font-family: "Montserrat", sans-serif;
+}
+
+     
+.youtube{
+    padding:2px;
+}

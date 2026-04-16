@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIET Student Portal</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* --- LOGIN PAGE STYLES --- */
+        #login-page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 50px;
+        }
+
+        .header-main {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header-main h1 {
+            color: #d32f2f;
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .header-main p {
+            color: #d32f2f;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .sem-badge {
+            background: white;
+            padding: 20px 50px;
+            border-radius: 0 0 30px 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+
+        .login-box {
+            background-color: #9e9e9e;
+            width: 320px;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .login-box label {
+            display: block;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 50px;
+            border: 2px solid #333;
+            background: #bcbcbc;
+            box-sizing: border-box;
+        }
+
+        .btn-submit {
+            background: #bcbcbc;
+            border: 2px solid #333;
+            padding: 8px 30px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: lowercase;
+        }
+
+        /* --- RESULTS PAGE STYLES (Hidden by default) --- */
+        #results-page {
+            display: none;
+            background: white;
+            min-height: 100vh;
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            border-bottom: 2px solid #0056b3;
+        }
+
+        .student-meta {
+            text-align: right;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .blue-bar {
+            background: #bdbdbd;
+            color: white;
+            text-align: center;
+            padding: 5px;
+            font-weight: bold;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .sidebar {
+            width: 180px;
+            background: #ffcc00;
+            min-height: calc(100vh - 100px);
+        }
+
+        .sidebar-item {
+            padding: 15px;
+            border-bottom: 1px solid white;
+            font-weight: bold;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .marks-summary {
+            width: 80%;
+            margin: 0 auto 20px auto;
+            border-collapse: collapse;
+            background: #f1f8e9;
+        }
+
+        .marks-summary td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .grade-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+
+        .grade-table th {
+            background: #ffcc00;
+            border: 1px solid #999;
+            padding: 8px;
+        }
+
+        .grade-table td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+
+        .text-red { color: red; font-weight: bold; }
+        .text-center { text-align: center; }
+    </style>
+</head>
+<body>
+
+    <div id="login-page">
+        <div class="header-main">
+            <h1>CHALAPATHI INSTITUTE</h1>
+            <p>OF ENGINEERING & TECHNOLOGY</p>
+        </div>
+
+        <div class="sem-badge">
+            1<sup>st</sup> year sem 1 results
+        </div>
+
+        <div class="login-box">
+            <label>Enter your Hall Ticket no:</label>
+            <input type="text" id="htInput" placeholder="">
+            <button class="btn-submit" onclick="showResults()">submit</button>
+        </div>
+    </div>
+
+    <div id="results-page">
+        <div class="results-header">
+            <div>
+                <h2 style="color:#0056b3; margin:0;">CHALAPATHI</h2>
+                <small>INSTITUTE OF ENGINEERING & TECHNOLOGY</small>
+            </div>
+            <div class="student-meta">
+                <strong>HTNo:</strong> Y25CSE010<br>
+                <strong>Name:</strong> ATLURI LAKSHMI PRASAD<br>
+                <strong>Branch:</strong> CSE | <strong>Sem:</strong> I/IV I SEM
+            </div>
+        </div>
+
+        <div class="blue-bar">Student Portal</div>
+
+        <div class="container">
+            <div class="sidebar">
+                <div class="sidebar-item">Information</div>
+                <div class="sidebar-item">Academic Information</div>
+                <div class="sidebar-item" style="background:#e6b800">Results Details</div>
+                <div class="sidebar-item">Contact Us</div>
+            </div>
+
+            <div class="content">
+                <h3 style="text-align:center;">Overall Marks</h3>
+                <table class="marks-summary">
+                    <tr>
+                        <td>CGPA:</td><td class="text-red">8.13</td>
+                        <td>Percentage:</td><td>8.9</td>
+                    </tr>
+                    <tr>
+                        <td>Credits Obtained:</td><td class="text-red">19.50/19.50</td>
+                        <td>Subject Due:</td><td class="text-red">0/10</td>
+                    </tr>
+                </table>
+
+                <table class="grade-table">
+                    <thead>
+                        <tr>
+                            <th>S.No</th>
+                            <th>Code</th>
+                            <th>Subject</th>
+                            <th>Grade</th>
+                            <th>Credits</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>CSE111</td><td>LINEAR ALGEBRA & CALCULUS</td><td class="text-center">C</td><td class="text-center">3.00</td></tr>
+                        <tr><td>2</td><td>CSE112</td><td>ENGINEERING PHYSICS</td><td class="text-center">E</td><td class="text-center">3.00</td></tr>
+                        <tr><td>3</td><td>CSE113</td><td>BASIC CIVIL & MECHANICAL ENGINEERING</td><td class="text-center">C</td><td class="text-center">3.00</td></tr>
+                        <tr><td>4</td><td>CSE114</td><td>COMMUNICATIVE ENGLISH</td><td class="text-center">C</td><td class="text-center">2.00</td></tr>
+                        <tr><td>5</td><td>CSE115</td><td>INTRODUCTION TO PROGRAMMING</td><td class="text-center">D</td><td class="text-center">3.00</td></tr>
+                        <tr><td>6</td><td>CSE151</td><td>ENGINEERING PHYSICS LAB</td><td class="text-center">S</td><td class="text-center">1.00</td></tr>
+                        <tr><td>7</td><td>CSE152</td><td>COMMUNICATIVE ENGLISH LAB</td><td class="text-center">A</td><td class="text-center">1.00</td></tr>
+                        <tr><td>8</td><td>CSE153</td><td>COMPUTER PROGRAMMING LAB</td><td class="text-center">S</td><td class="text-center">1.50</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showResults() {
+            var input = document.getElementById("htInput").value;
+            if (input.toUpperCase() === "Y25CSE010") {
+                document.getElementById("login-page").style.display = "none";
+                document.getElementById("results-page").style.display = "block";
+            } else {
+                alert("Please enter the correct Hall Ticket No");
+            }
+        }
+    </script>
+</body>
+</html>

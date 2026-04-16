@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>దేవాలయ విరాళం</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+color:white;
+text-align:center;
+}
+
+#bgvideo{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-1;
+}
+
+.container{
+width:90%;
+max-width:420px;
+margin:auto;
+margin-top:100px;
+background:rgba(0,0,0,0.75);
+padding:30px;
+border-radius:12px;
+}
+
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:6px;
+font-size:16px;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#ff9800;
+border:none;
+border-radius:6px;
+font-size:16px;
+color:white;
+cursor:pointer;
+}
+
+a{
+color:#ffd54f;
+text-decoration:none;
+font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<video autoplay muted loop playsinline id="bgvideo">
+<source src="https://v.ftcdn.net/16/61/35/96/240_F_1661359658_5T8XR3sWFASPlYh4UW4EfMjXbrbUyalg_ST.mp4" type="video/mp4">
+</video>
+
+<div class="container">
+
+<h2>🛕ఓం శ్రీ చౌడేశ్వరి దేవియే నమః</h2>
+
+<form id="donationForm">
+
+<input type="number" id="receipt" placeholder="రసీదు సంఖ్య" required>
+
+<input type="text" id="name" placeholder="భక్తుని పేరు" required>
+
+<input type="number" id="amount" placeholder="విరాళం మొత్తం" required>
+
+<button type="submit">రసీదు తయారు చేయండి</button>
+
+</form>
+
+<br>
+
+<a href="history.html">విరాళాల చరిత్ర చూడండి</a>
+
+</div>
+
+<script>
+
+let history = JSON.parse(localStorage.getItem("donations")) || [];
+
+document.getElementById("donationForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let receipt=document.getElementById("receipt").value;
+let name=document.getElementById("name").value;
+let amount=document.getElementById("amount").value;
+
+let exists=history.some(r=>r.receipt==receipt);
+
+if(exists){
+alert("ఈ రసీదు సంఖ్య ఇప్పటికే ఉంది!");
+return;
+}
+
+window.location.href=
+"contact.html?receipt="+receipt+
+"&name="+encodeURIComponent(name)+
+"&amount="+amount;
+
+});
+
+</script>
+
+</body>
+</html>
